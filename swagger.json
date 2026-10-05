@@ -1,0 +1,427 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Post-Mission Planner API",
+    "version": "1.0.0",
+    "description": "Week 5: spiritual goals and career goals. Authentication arrives in Week 6."
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "paths": {
+    "/spiritual-goals": {
+      "get": {
+        "tags": [
+          "Spiritual Goals"
+        ],
+        "summary": "Get all Spiritual Goals",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SpiritualGoal"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Spiritual Goals"
+        ],
+        "summary": "Create a SpiritualGoal",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpiritualGoal"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/spiritual-goals/{id}": {
+      "get": {
+        "tags": [
+          "Spiritual Goals"
+        ],
+        "summary": "Get one SpiritualGoal",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "24-character MongoDB ObjectId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpiritualGoal"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid id"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Spiritual Goals"
+        ],
+        "summary": "Update a SpiritualGoal",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "24-character MongoDB ObjectId"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpiritualGoal"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Updated, no content"
+          },
+          "400": {
+            "description": "Invalid id or validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Spiritual Goals"
+        ],
+        "summary": "Delete a SpiritualGoal",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "24-character MongoDB ObjectId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          },
+          "400": {
+            "description": "Invalid id"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/career-goals": {
+      "get": {
+        "tags": [
+          "Career Goals"
+        ],
+        "summary": "Get all Career Goals",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CareerGoal"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Career Goals"
+        ],
+        "summary": "Create a CareerGoal",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CareerGoal"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/career-goals/{id}": {
+      "get": {
+        "tags": [
+          "Career Goals"
+        ],
+        "summary": "Get one CareerGoal",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "24-character MongoDB ObjectId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CareerGoal"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid id"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Career Goals"
+        ],
+        "summary": "Update a CareerGoal",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "24-character MongoDB ObjectId"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CareerGoal"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Updated, no content"
+          },
+          "400": {
+            "description": "Invalid id or validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Career Goals"
+        ],
+        "summary": "Delete a CareerGoal",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "24-character MongoDB ObjectId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          },
+          "400": {
+            "description": "Invalid id"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SpiritualGoal": {
+        "type": "object",
+        "required": [
+          "userId",
+          "title"
+        ],
+        "properties": {
+          "userId": {
+            "type": "string",
+            "example": "665f1c2e8b3a4d0012345678"
+          },
+          "title": {
+            "type": "string",
+            "example": "Read the Book of Mormon daily"
+          },
+          "description": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Not Started",
+              "In Progress",
+              "Completed"
+            ]
+          },
+          "targetDate": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-12-31"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      },
+      "CareerGoal": {
+        "type": "object",
+        "required": [
+          "userId",
+          "title"
+        ],
+        "properties": {
+          "userId": {
+            "type": "string",
+            "example": "665f1c2e8b3a4d0012345678"
+          },
+          "title": {
+            "type": "string",
+            "example": "Read the Book of Mormon daily"
+          },
+          "description": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Not Started",
+              "In Progress",
+              "Completed"
+            ]
+          },
+          "targetDate": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-12-31"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "progress": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "example": 25
+          }
+        }
+      }
+    }
+  }
+}
