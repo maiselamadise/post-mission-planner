@@ -25,14 +25,21 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/SpiritualGoal"
+                    "$ref": "#/components/schemas/SpiritualGoalResponse"
                   }
                 }
               }
             }
           },
           "500": {
-            "description": "Server error"
+            "description": "Server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       },
@@ -53,13 +60,34 @@
         },
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpiritualGoalResponse"
+                }
+              }
+            }
           },
           "400": {
-            "description": "Validation error"
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           },
           "500": {
-            "description": "Server error"
+            "description": "Server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       }
@@ -87,19 +115,40 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SpiritualGoal"
+                  "$ref": "#/components/schemas/SpiritualGoalResponse"
                 }
               }
             }
           },
           "400": {
-            "description": "Invalid id"
+            "description": "Invalid id format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Not found"
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           },
           "500": {
-            "description": "Server error"
+            "description": "Server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       },
@@ -124,7 +173,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SpiritualGoal"
+                "$ref": "#/components/schemas/SpiritualGoalUpdate"
               }
             }
           }
@@ -134,13 +183,34 @@
             "description": "Updated, no content"
           },
           "400": {
-            "description": "Invalid id or validation error"
+            "description": "Invalid id, empty body, or validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Not found"
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           },
           "500": {
-            "description": "Server error"
+            "description": "Server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       },
@@ -162,16 +232,50 @@
         ],
         "responses": {
           "200": {
-            "description": "Deleted"
+            "description": "Deleted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Spiritual goal deleted"
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
-            "description": "Invalid id"
+            "description": "Invalid id format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Not found"
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           },
           "500": {
-            "description": "Server error"
+            "description": "Server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       }
@@ -190,14 +294,21 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/CareerGoal"
+                    "$ref": "#/components/schemas/CareerGoalResponse"
                   }
                 }
               }
             }
           },
           "500": {
-            "description": "Server error"
+            "description": "Server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       },
@@ -218,13 +329,34 @@
         },
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CareerGoalResponse"
+                }
+              }
+            }
           },
           "400": {
-            "description": "Validation error"
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           },
           "500": {
-            "description": "Server error"
+            "description": "Server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       }
@@ -252,19 +384,40 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CareerGoal"
+                  "$ref": "#/components/schemas/CareerGoalResponse"
                 }
               }
             }
           },
           "400": {
-            "description": "Invalid id"
+            "description": "Invalid id format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Not found"
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           },
           "500": {
-            "description": "Server error"
+            "description": "Server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       },
@@ -289,7 +442,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CareerGoal"
+                "$ref": "#/components/schemas/CareerGoalUpdate"
               }
             }
           }
@@ -299,13 +452,34 @@
             "description": "Updated, no content"
           },
           "400": {
-            "description": "Invalid id or validation error"
+            "description": "Invalid id, empty body, or validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Not found"
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           },
           "500": {
-            "description": "Server error"
+            "description": "Server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       },
@@ -327,16 +501,50 @@
         ],
         "responses": {
           "200": {
-            "description": "Deleted"
+            "description": "Deleted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Spiritual goal deleted"
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
-            "description": "Invalid id"
+            "description": "Invalid id format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Not found"
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           },
           "500": {
-            "description": "Server error"
+            "description": "Server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       }
@@ -353,14 +561,16 @@
         "properties": {
           "userId": {
             "type": "string",
-            "example": "665f1c2e8b3a4d0012345678"
+            "example": "665f1c2e8b3a4d0012345678",
+            "description": "24-character hex ObjectId of the owner (login arrives in Week 06)"
           },
           "title": {
             "type": "string",
             "example": "Read the Book of Mormon daily"
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "example": "Study a chapter each morning before work"
           },
           "status": {
             "type": "string",
@@ -368,7 +578,8 @@
               "Not Started",
               "In Progress",
               "Completed"
-            ]
+            ],
+            "example": "In Progress"
           },
           "targetDate": {
             "type": "string",
@@ -376,7 +587,8 @@
             "example": "2026-12-31"
           },
           "notes": {
-            "type": "string"
+            "type": "string",
+            "example": "Started the week after returning home"
           }
         }
       },
@@ -389,14 +601,16 @@
         "properties": {
           "userId": {
             "type": "string",
-            "example": "665f1c2e8b3a4d0012345678"
+            "example": "665f1c2e8b3a4d0012345678",
+            "description": "24-character hex ObjectId of the owner (login arrives in Week 06)"
           },
           "title": {
             "type": "string",
-            "example": "Read the Book of Mormon daily"
+            "example": "Complete a software development certificate"
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "example": "Finish the coursework and apply for junior developer roles"
           },
           "status": {
             "type": "string",
@@ -404,7 +618,8 @@
               "Not Started",
               "In Progress",
               "Completed"
-            ]
+            ],
+            "example": "In Progress"
           },
           "targetDate": {
             "type": "string",
@@ -412,13 +627,204 @@
             "example": "2026-12-31"
           },
           "notes": {
-            "type": "string"
+            "type": "string",
+            "example": "Applying to five companies per week"
           },
           "progress": {
             "type": "number",
             "minimum": 0,
             "maximum": 100,
             "example": 25
+          }
+        }
+      },
+      "SpiritualGoalUpdate": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "example": "Read the Book of Mormon daily"
+          },
+          "description": {
+            "type": "string",
+            "example": "Study a chapter each morning before work"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Not Started",
+              "In Progress",
+              "Completed"
+            ],
+            "example": "In Progress"
+          },
+          "targetDate": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-12-31"
+          },
+          "notes": {
+            "type": "string",
+            "example": "Started the week after returning home"
+          }
+        },
+        "description": "Any subset of fields. userId cannot be changed."
+      },
+      "SpiritualGoalResponse": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "example": "665f2a9d8b3a4d00aabbccdd"
+          },
+          "userId": {
+            "type": "string",
+            "example": "665f1c2e8b3a4d0012345678",
+            "description": "24-character hex ObjectId of the owner (login arrives in Week 06)"
+          },
+          "title": {
+            "type": "string",
+            "example": "Read the Book of Mormon daily"
+          },
+          "description": {
+            "type": "string",
+            "example": "Study a chapter each morning before work"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Not Started",
+              "In Progress",
+              "Completed"
+            ],
+            "example": "In Progress"
+          },
+          "targetDate": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-12-31"
+          },
+          "notes": {
+            "type": "string",
+            "example": "Started the week after returning home"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "CareerGoalUpdate": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "example": "Complete a software development certificate"
+          },
+          "description": {
+            "type": "string",
+            "example": "Finish the coursework and apply for junior developer roles"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Not Started",
+              "In Progress",
+              "Completed"
+            ],
+            "example": "In Progress"
+          },
+          "targetDate": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-12-31"
+          },
+          "notes": {
+            "type": "string",
+            "example": "Applying to five companies per week"
+          },
+          "progress": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "example": 25
+          }
+        },
+        "description": "Any subset of fields. userId cannot be changed."
+      },
+      "CareerGoalResponse": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "example": "665f2a9d8b3a4d00aabbccdd"
+          },
+          "userId": {
+            "type": "string",
+            "example": "665f1c2e8b3a4d0012345678",
+            "description": "24-character hex ObjectId of the owner (login arrives in Week 06)"
+          },
+          "title": {
+            "type": "string",
+            "example": "Complete a software development certificate"
+          },
+          "description": {
+            "type": "string",
+            "example": "Finish the coursework and apply for junior developer roles"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Not Started",
+              "In Progress",
+              "Completed"
+            ],
+            "example": "In Progress"
+          },
+          "targetDate": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-12-31"
+          },
+          "notes": {
+            "type": "string",
+            "example": "Applying to five companies per week"
+          },
+          "progress": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "example": 25
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Validation failed"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "title is required"
+            ]
           }
         }
       }

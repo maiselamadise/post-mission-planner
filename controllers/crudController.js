@@ -44,7 +44,12 @@ module.exports = function createController(Model, label) {
 
     update: async (req, res) => {
       try {
-        const item = await Model.findByIdAndUpdate(req.params.id, req.body, {
+        // Ownership and id must not be changed through an update
+        const { userId, _id, createdAt, updatedAt, ...changes } = req.body || {};
+        if (Object.keys(changes).length === 0) {
+          return res.status(400).json({ message: 'Request body must include at least one field to update' });
+        }
+        const item = await Model.findByIdAndUpdate(req.params.id, changes, {
           new: true,
           runValidators: true
         });
